@@ -7,9 +7,15 @@
 //
 
 import UIKit
-import SwiftyJSON
+import HandyJSON
 
-class BaseModel: NSObject {
+class BaseModel: HandyJSON {
+    
+    var code : String?
+    var data : BaseModel?
+    var message : String?
+    
+    required public init() { }
 }
 
 

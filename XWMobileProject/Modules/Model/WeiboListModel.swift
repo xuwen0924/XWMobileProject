@@ -24,20 +24,33 @@ class WeiboListModel: BaseModel {
                                         "count": "100",
                                         ]
         
-        HttpClient.getRequest(url: weibo_test_url, params: params, successHandler: { (value) in
-            print(value["statuses"] as! [AnyObject])
-            var models:[WeiboListModel] = []
+        NetHTTPRequestOperationManager.default.POSTDataJSON(URLString: weibo_test_url, params: params, success: { (response) in
             
-            for model in value["statuses"] as! [AnyObject] {
-                let bannerModel = WeiboListModel()
-                bannerModel.setValuesForKeys(model as! [String : AnyObject])
-                models.append(bannerModel)
-            }
+            //1 确定返回数据的类型
+            let arrResponse = response as! Dictionary<String, Any>
+            let arr = arrResponse["statuses"] as! Array<[String:Any]>
+            print(arr)
             
-            returnData!(models)
         }) { (error) in
-            print(error)
+            print("================%@",error.debugDescription)
         }
+        
+        
+//        HttpClient.getRequest(url: weibo_test_url, params: params, successHandler: { (value) in
+//            print(value["statuses"] as! [AnyObject])
+//            var models:[WeiboListModel] = []
+//            
+//            for model in value["statuses"] as! [AnyObject] {
+//                let bannerModel = WeiboListModel()
+//                //映射到 model中
+//                let dataModel  = WeiboListModel.deserialize(from: model)
+//                models.append(bannerModel)
+//            }
+//            
+//            returnData!(models)
+//        }) { (error) in
+//            print(error)
+//        }
     }
 }
 
