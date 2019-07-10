@@ -32,23 +32,23 @@ class BaseTabBarViewController: ESTabBarController, UITabBarControllerDelegate {
     func initTabBarControllers(){
         
         let v1 : HomePageViewController! = HomePageViewController()
-        let nav1 : UINavigationController! = UINavigationController(rootViewController: v1)
+        let nav1 : BaseNavigationController! = BaseNavigationController(rootViewController: v1)
         
         let v2 : DiscoveryViewController! = DiscoveryViewController()
-        let nav2 : UINavigationController! = UINavigationController(rootViewController: v2)
+        let nav2 : BaseNavigationController! = BaseNavigationController(rootViewController: v2)
         
         let v3 : MessageViewController! = MessageViewController()
-        let nav3 : UINavigationController! = UINavigationController(rootViewController: v3)
+        let nav3 : BaseNavigationController! = BaseNavigationController(rootViewController: v3)
         
         let v4 : FavorViewController! = FavorViewController()
-        let nav4 : UINavigationController! = UINavigationController(rootViewController: v4)
+        let nav4 : BaseNavigationController! = BaseNavigationController(rootViewController: v4)
         
         let v5 : PersonalViewController! = PersonalViewController()
-        let nav5 : UINavigationController! = UINavigationController(rootViewController: v5)
+        let nav5 : BaseNavigationController! = BaseNavigationController(rootViewController: v5)
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11)], for: UIControl.State())
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11)], for: UIControl.State.selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11)], for: UIControl.State.selected)
         
         v1.tabBarItem = UITabBarItem.init(title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"))
         v2.tabBarItem = UITabBarItem.init(title: "Find", image: UIImage(named: "find"), selectedImage: UIImage(named: "find_1"))

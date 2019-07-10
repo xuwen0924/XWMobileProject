@@ -8,14 +8,13 @@
 
 import UIKit
 
-class DiscoveryViewController: UIViewController {
+class DiscoveryViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         navigationItem.title = "发现"
-        view.backgroundColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {

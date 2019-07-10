@@ -8,14 +8,13 @@
 
 import UIKit
 
-class PersonalViewController: UIViewController {
+class PersonalViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         navigationItem.title = "我"
-        view.backgroundColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {

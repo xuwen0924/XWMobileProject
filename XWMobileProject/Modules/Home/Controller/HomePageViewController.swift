@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class HomePageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomePageViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     let kCloseCellHeight: CGFloat = 179
     let kOpenCellHeight: CGFloat = 488
@@ -29,15 +29,15 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
         //请求数据
         requestData();
         
-        let button = UIButton(type: .roundedRect)
-        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
-        button.setTitle("Crash", for: [])
-        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
-        view.addSubview(button)
-        
         let rightItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.camera, target: self, action: #selector(crashButtonTapped))
         navigationItem.rightBarButtonItem = rightItem
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UINavigationBar.appearance().barStyle = UIBarStyle.default;
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().backgroundColor = .white
     }
     
     @objc func crashButtonTapped(_ sender: AnyObject) {
@@ -63,7 +63,6 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
     func requestData() -> Void {
         WeiboListModel.fetchPublicWeiBo { (dataArray) in
             print(dataArray)
-            print("success")
             self.dataArray = dataArray
             self.cellHeights.append(self.kCloseCellHeight)
             self.tableView.reloadData()
@@ -109,6 +108,10 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let vc = HomePageDetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
 
     override func didReceiveMemoryWarning() {

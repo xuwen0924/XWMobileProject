@@ -39,7 +39,7 @@ open class NetHTTPRequestOperationManager {
                            success : @escaping (_ responseObject :Any?)->(),
                            failture : @escaping (_ error : NSError)->()) {
         
-        self.requestDataToJSON(.get, URLString: URLString, params: params, success: success, failture: failture)
+        self.requestDataToJSON(.post, URLString: URLString, params: params, success: success, failture: failture)
     }
     
     /// POST 请求
@@ -74,21 +74,22 @@ open class NetHTTPRequestOperationManager {
                                  failture : @escaping (_ error : NSError)->()) {
         
         //1.获取类型
-        let method = type == .get ? HTTPMethod.get : HTTPMethod.post
+        //let method = type == .get ? HTTPMethod.get : HTTPMethod.post
         
         //2.支持自定义Http头信息（HTTP Headers） cookie 信息
         // 配置 HTTPHeader
-        let headers: HTTPHeaders = [:]
+        //let headers: HTTPHeaders = [:]
         
-        let headerConfig = self.httpConfig.getHeader(dictHeader: headers)
+        //let headerConfig = self.httpConfig.getHeader(dictHeader: headers)
     
         //3.设置返回数据格式
-        let contentConfig = self.httpConfig.getContentType(contentType: nil)
+        //let contentConfig = self.httpConfig.getContentType(contentType: nil)
         
         //4.底层发送网络请求
-        Alamofire.request(URLString, method: method,parameters:params,encoding:urlEncoding,
-                          headers:headerConfig).validate(contentType: contentConfig).responseJSON { (response) in
-           
+        Alamofire.request(URLString, parameters: params, encoding: URLEncoding.default).validate().responseJSON { response in
+//        Alamofire.request(URLString, method: method,parameters:params,encoding:urlEncoding,
+//                          headers:headerConfig).validate(contentType: contentConfig).responseJSON { (response) in
+        
             switch response.result {
             
             //成功的回调
@@ -103,16 +104,7 @@ open class NetHTTPRequestOperationManager {
                     
                     //映射到 model中
                    let dataModel  = NetHTTPResponseModel.deserialize(from: value)
-                    guard  ((dataModel?.data as?[String : Any]) != nil)  else {
-                       
-                        //防止接口返回字典改变
-                        guard  ((dataModel?.d as?[String : Any]) != nil)  else {
-                            return
-                        }
-                        success(dataModel?.d)
-                        return
-                    }
-                    success(dataModel?.data)
+                    success(dataModel)
                 }
             
             //失败的回调

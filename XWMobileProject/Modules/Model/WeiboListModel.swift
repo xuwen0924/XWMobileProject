@@ -27,30 +27,17 @@ class WeiboListModel: BaseModel {
         NetHTTPRequestOperationManager.default.POSTDataJSON(URLString: weibo_test_url, params: params, success: { (response) in
             
             //1 确定返回数据的类型
-            let arrResponse = response as! Dictionary<String, Any>
-            let arr = arrResponse["statuses"] as! Array<[String:Any]>
-            print(arr)
-            
+            let arrResponse = response as! NetHTTPResponseModel
+            let arr = arrResponse.statuses as! Array<[String:Any]>
+            var modelList:[WeiboListModel] = []
+            for item in arr {
+                let model:WeiboListModel = WeiboListModel.deserialize(from: item) ?? WeiboListModel()
+                modelList.append(model)
+            }
+            returnData!(modelList)
         }) { (error) in
-            print("================%@",error.debugDescription)
+            print(error.debugDescription)
         }
-        
-        
-//        HttpClient.getRequest(url: weibo_test_url, params: params, successHandler: { (value) in
-//            print(value["statuses"] as! [AnyObject])
-//            var models:[WeiboListModel] = []
-//            
-//            for model in value["statuses"] as! [AnyObject] {
-//                let bannerModel = WeiboListModel()
-//                //映射到 model中
-//                let dataModel  = WeiboListModel.deserialize(from: model)
-//                models.append(bannerModel)
-//            }
-//            
-//            returnData!(models)
-//        }) { (error) in
-//            print(error)
-//        }
     }
 }
 

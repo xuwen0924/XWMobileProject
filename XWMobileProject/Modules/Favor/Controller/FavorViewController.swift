@@ -8,14 +8,13 @@
 
 import UIKit
 
-class FavorViewController: UIViewController {
+class FavorViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         navigationItem.title = "喜爱"
-        view.backgroundColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {

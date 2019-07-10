@@ -11,14 +11,8 @@ import UIKit
 
 class NetHTTPResponseModel: NetBaseModel {
     
-    
-    var r: Int?
-    var d: Any?
-    var m: String?
-    
-    var code: String?
-    var info: String?
     var data: Any?
+    var statuses: Any?
 
     required public init() { }
 }

@@ -8,14 +8,13 @@
 
 import UIKit
 
-class MessageViewController: UIViewController {
+class MessageViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         navigationItem.title = "Photo"
-        view.backgroundColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {
