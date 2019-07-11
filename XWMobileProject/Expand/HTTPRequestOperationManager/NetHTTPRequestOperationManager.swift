@@ -83,10 +83,10 @@ open class NetHTTPRequestOperationManager {
         //let headerConfig = self.httpConfig.getHeader(dictHeader: headers)
     
         //3.设置返回数据格式
-        //let contentConfig = self.httpConfig.getContentType(contentType: nil)
+        let contentConfig = self.httpConfig.getContentType(contentType: nil)
         
         //4.底层发送网络请求
-        Alamofire.request(URLString, parameters: params, encoding: URLEncoding.default).validate().responseJSON { response in
+        Alamofire.request(URLString, parameters: params, encoding: URLEncoding.default).validate(contentType: contentConfig).responseJSON { response in
 //        Alamofire.request(URLString, method: method,parameters:params,encoding:urlEncoding,
 //                          headers:headerConfig).validate(contentType: contentConfig).responseJSON { (response) in
         

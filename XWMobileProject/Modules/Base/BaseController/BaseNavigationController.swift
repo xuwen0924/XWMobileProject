@@ -26,7 +26,7 @@ class BaseNavigationController: UINavigationController {
     //MARK - 自定义导航栏返回按钮
     func leftBarButtonItem() -> UIBarButtonItem {
         let backbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
-        backbtn.setImage(UIImage (named: "leftbackicon_sdk_login"), for: .normal)
+        backbtn.setImage(UIImage (named: "nav_return"), for: .normal)
         backbtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 10)
         backbtn.addTarget(self, action:#selector(navigationBackButtonAction), for: .touchUpInside)
         let leftitem = UIBarButtonItem.init(customView: backbtn)
