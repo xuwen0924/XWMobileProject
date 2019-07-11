@@ -12,15 +12,15 @@ class BaseNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.black
-        navigationBar.isTranslucent = false
-        navigationBar.barTintColor = UIColor.white  //导航栏底色
-        
-        navigationBar.backgroundColor = UIColor.white
-        navigationBar.titleTextAttributes = [NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 18),NSAttributedString.Key.foregroundColor:UIColor.black]
-        
-        navigationBar.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 88)
-        navigationBar.shadowImage = UIImage()      //消除导航栏下面的黑线
+//        view.backgroundColor = UIColor.black
+//        navigationBar.isTranslucent = false
+//        navigationBar.barTintColor = UIColor.white  //导航栏底色
+//        
+//        navigationBar.backgroundColor = UIColor.white
+//        navigationBar.titleTextAttributes = [NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 18),NSAttributedString.Key.foregroundColor:UIColor.black]
+//        
+//        navigationBar.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 88)
+//        navigationBar.shadowImage = UIImage()      //消除导航栏下面的黑线
     }
     
     //MARK - 自定义导航栏返回按钮

@@ -19,9 +19,10 @@ class HomePageDetailViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UINavigationBar.appearance().barStyle = UIBarStyle.default;
-        UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().backgroundColor = .clear
+        
+        //设置导航栏透明
+        navigationController?.navigationBar.setBackgroundImage(UIImage.createImageFromColor(color: .clear), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
 
     /*

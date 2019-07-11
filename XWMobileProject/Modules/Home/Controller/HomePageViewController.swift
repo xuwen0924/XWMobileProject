@@ -35,9 +35,6 @@ class HomePageViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UINavigationBar.appearance().barStyle = UIBarStyle.default;
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().backgroundColor = .white
     }
     
     @objc func crashButtonTapped(_ sender: AnyObject) {

@@ -53,16 +53,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationApperance(){
         
-        //  1、获取导航条
-        let navBar = UINavigationBar.appearance();
-        //  2、设置导航条背景
-        //        navBar.setBackgroundImage(UIImage(named: "red_bar"), forBarMetrics: UIBarMetrics.Default);
-        //  3、设置字体属性
-        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)];
-        
-        navBar.tintColor = UIColor.black
-        
-        navBar.shadowImage = UIImage()
+//        //  1、获取导航条
+//        let navBar = UINavigationBar.appearance();
+//        //  2、设置导航条背景
+//        //        navBar.setBackgroundImage(UIImage(named: "red_bar"), forBarMetrics: UIBarMetrics.Default);
+//        //  3、设置字体属性
+//        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)];
+//        
+//        navBar.tintColor = UIColor.black
+//        
+//        navBar.shadowImage = UIImage()
         
     }
 }
